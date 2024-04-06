@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Input, Button, Spinner } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 function LoginForm() {
   const [loginDetails, setLoginDetails] = useState({
@@ -8,6 +9,7 @@ function LoginForm() {
     password: "",
     // confirmPassword: "",
   });
+  const { push } = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -16,14 +18,12 @@ function LoginForm() {
     setLoginDetails({ ...loginDetails, ...fields });
   }
 
-  console.log(loginDetails);
-
   async function handleLogin() {
     setIsLoading(true);
     setError("");
 
     try {
-      const res = fetch("/api/login", {
+      const res = await fetch("/api/login", {
         body: JSON.stringify(loginDetails),
         method: "POST",
         headers: {
@@ -32,8 +32,9 @@ function LoginForm() {
       });
 
       if (res.status == 200) {
+        const data = await res.json();
+        console.log("RESPONSE: ", data);
         push("/pay");
-        return;
       } else {
         setError("Invalid Login: Password or email!");
 

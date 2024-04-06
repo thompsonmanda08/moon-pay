@@ -8,7 +8,7 @@ function Pay() {
   function handlePayment() {}
   return (
     <div className="w-full h-screen grid place-items-center">
-      <div className="p-5 border border-slate-400/20 rounded-lg w-96 flex flex-col gap-5 justify-center items-center">
+      <div className="p-5 border border-slate-400/60 rounded-lg w-96 flex flex-col gap-5 justify-center items-center">
         <p className="text-center font-semibold">
           Software Development Course <br />K 300/month
         </p>
