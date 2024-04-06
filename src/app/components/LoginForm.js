@@ -10,7 +10,7 @@ function LoginForm() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("Sory Somthing is wrong!");
+  const [error, setError] = useState("");
 
   function updateLoginDetails(fields) {
     setLoginDetails({ ...loginDetails, ...fields });
