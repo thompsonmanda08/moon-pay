@@ -3,17 +3,18 @@ const app = express();
 
 app.use(express.json());
 
+// user information
 const users = [
   {
     username: "joel",
     password: "zimba"
   },
   {
-    username: "evans@example.com",
-    password: "password2"
+    username: "evans@2.com",
+    password: "1234"
   }
 ];
-
+// user validation
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
