@@ -7,7 +7,7 @@ export async function POST(req, res) {
   // Try to log the user in
   try {
     const res = await fetch(
-      "LOGIN URL",
+      "http://localhost:3001/login",
 
       {
         method: "POST",
@@ -25,7 +25,8 @@ export async function POST(req, res) {
     if (res.ok || res.status == 200) {
       const data = await res.json();
 
-      // SET some cookies or JWT Tokens here for user sessions
+      // SET SOME COOKIES
+      console.log("ok");
       return Response.json({ data });
     }
 
