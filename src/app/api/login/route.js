@@ -6,7 +6,7 @@ export async function POST(req, res) {
 
   try {
     const res = await fetch(
-      "LOGIN URL",
+      "http://localhost:3001/login",
 
       {
         method: "POST",
@@ -25,7 +25,9 @@ export async function POST(req, res) {
       const data = await res.json();
 
       // SET SOME COOKIES
+      console.log('ok');
       return Response.json({ data });
+      
     }
 
     return Response.json({ status: "failed", data: res.data });
@@ -35,6 +37,8 @@ export async function POST(req, res) {
 
   return Response.json({ status: "Something went wrong!" });
 }
+
+
 
 // import { serialize } from "cookie";
 // import { COOKIE_NAME, MAX_AGE, API_URL } from "../../../../lib/constants";
