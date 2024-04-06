@@ -20,6 +20,7 @@ function LoginForm() {
 
   async function handleLogin() {
     setIsLoading(true);
+    setError("");
 
     try {
       const res = fetch("/api/login", {
@@ -34,7 +35,7 @@ function LoginForm() {
         push("/pay");
         return;
       } else {
-        setError(res.message);
+        setError("Invalid Login: Password or email!");
 
         setTimeout(() => {
           setError("");
@@ -44,6 +45,9 @@ function LoginForm() {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setTimeout(() => {
+        setError("");
+      }, 3000);
     }
   }
 
