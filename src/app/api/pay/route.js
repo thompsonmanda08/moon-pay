@@ -1,4 +1,3 @@
-import { serialize } from "cookie";
 export async function POST(req, res) {
   const body = await req.json();
 
