@@ -3,18 +3,19 @@ const app = express();
 
 app.use(express.json());
 
+// user information
 const users = [
   {
     username: "joel",
     password: "zimba",
   },
   {
-    username: "evans@example.com",
-    password: "password2",
+    username: "evans@2.com",
+    password: "1234",
   },
 ];
 
-app.post("/login", (req, res) => {
+app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
   const user = users.find(
